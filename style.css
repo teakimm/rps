@@ -1,0 +1,8 @@
+.selection {
+  display: flex;
+  align-items: center;
+}
+.player-choice, .cpu-choice {
+  width: 100px;
+  height: auto;
+}

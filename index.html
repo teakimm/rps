@@ -5,52 +5,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>rps</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <script>
-    function getComputerChoice() {
-      let rps = ['Rock', 'Paper', 'Scissors'];
-      return rps[Math.floor(Math.random() * rps.length)];
-    }
-    let playerWins = 0;
-    let cpuWins = 0;
-    function playRound(playerSelection, computerSelection) {
-      let cased = (playerSelection.charAt(0)).toUpperCase() + (playerSelection.substr(1)).toLowerCase();
-      if(cased === computerSelection) {
-        return 'It\'s a tie. Both you and the computer chose \"' + computerSelection + '\".';
-      } else if((cased === 'Rock' && computerSelection === 'Scissors') ||
-              (cased === 'Paper' && computerSelection === 'Rock') ||
-              (cased === 'Scissors' && computerSelection === 'Paper')) {
-        playerWins++;
-        return 'You win! You chose \"' + cased + '\" and the computer chose \"' + computerSelection + '\".';
-      } else if((cased === 'Rock' && computerSelection === 'Paper') ||
-              (cased === 'Paper' && computerSelection === 'Scissors') ||
-              (cased === 'Scissors' && computerSelection === 'Rock')) {
-        cpuWins++;
-        return 'You lose... You chose \"' + cased + '\" and the computer chose \"' + computerSelection + '\".';
-      } else {
-        return 'You didn\'t choose rock, paper, or scissors. Or you made a typo.'
-      }
-    }
-
-    function game() {
-      playerWins = 0;
-      cpuWins = 0;
-      let rounds = 0;
-      for(let i = 0; i < 5; i++) {
-        let playerPrompt = prompt('Choose: Rock, Paper, or Scissors');
-        rounds++;
-        console.log('round ' + rounds + ': ' + playRound(playerPrompt, getComputerChoice()) + '\nScore - You: ' + playerWins + ', Computer: ' + cpuWins + '.' );
-      }
-      if(playerWins === cpuWins) {
-        console.log("After 5 rounds, you have tied with the computer with a score of " + playerWins + ' (You) to ' + cpuWins + ' (Computer).')
-      } else if (playerWins > cpuWins) {
-        console.log("After 5 rounds, you have won against the computer with a score of " + playerWins + ' (You) to ' + cpuWins + ' (Computer). Good job!')
-      } else {
-        console.log("After 5 rounds, you have lost against the computer with a score of " + playerWins + ' (You) to ' + cpuWins + ' (Computer). Better luck next time!')
-      }
-    }
-    game()
-  </script>
+  <h1>RPS</h1>
+  <div class="selection">
+    <img class="player-choice" src="https://images.emojiterra.com/twitter/512px/2753.png" alt="Player selection">
+    <p>vs.</p>
+    <img class="cpu-choice" src="https://images.emojiterra.com/twitter/512px/2753.png" alt="cpu selection">
+  </div>
+  <div class="button-ui">
+    <button class="rock">Rock</button>
+    <button class="paper">Paper</button>
+    <button class="scissors">Scissors</button>
+    <p class = "round-result"></p>
+  </div>
+  <div class="game-details">
+    <p class="score">Score:</p>
+    <p class="rounds">Rounds Played:</p>
+    <button class="reset">Reset Score</button>
+  </div>
 </body>
 </html>
