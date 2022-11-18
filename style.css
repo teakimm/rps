@@ -1,8 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #121212;
+  color: white;
+  font-size: 24px;
+}
 .selection {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 50px;
 }
 .player-choice, .cpu-choice {
-  width: 100px;
+  width: 250px;
   height: auto;
+}
+button {
+  flex-direction: row;
+  background-color: #121212;
+  color: white;
+  width: 100px;
+  height: 50px;
+  margin: 50px;
+  margin-bottom: 25px;
+  border-radius: 15px;
+  font-size: large;
+}
+.reset {
+  margin: 0px;
 }
